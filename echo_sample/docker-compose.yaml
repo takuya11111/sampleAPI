@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  mysql:
+    container_name: sampleapi_mysql
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_USER=simpleapi
+      - MYSQL_PASSWORD=simpleapi
+      - MYSQL_DATABASE=simpleapi
+    volumes:
+      - "./mysql/init_db.sql:/docker-entrypoint-initdb.d/1.sql"
